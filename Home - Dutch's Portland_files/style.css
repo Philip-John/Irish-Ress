@@ -1,0 +1,11 @@
+/*
+Theme Name:     LemonChili
+Description:    Child theme for Dutch's Portland using LemonChili base theme
+Author:         Craig Sult
+Template:      	lemonchili
+Version:        1.0
+*/
+@import url("../lemonchili/style.css");
+
+
+/**** make changes in style-pnw.css ****/

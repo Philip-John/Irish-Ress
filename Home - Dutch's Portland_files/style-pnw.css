@@ -1,0 +1,204 @@
+/***
+Fonts and colors
+
+
+teal: 		#52C0B0
+red: 		#A92C2C
+tan: 		#A59383
+
+***/
+
+body {
+	color: #a49284 !important;
+}
+.sf-menu li a:hover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active, .sf-menu ul a:hover, .sfHover a, li.sfHover a, .sf-menu li.selected a, .sf-menu li.current-cat a, .sf-menu li.current-cat-parent a, .sf-menu li.current_page_item a, .current-menu-parent a.sf-with-ul {
+	color: #ffffff !important;
+}
+.sf-menu a, .sf-menu a:visited, .sf-menu li a, .sf-menu li a:active {
+	color: #a92c2c !important;
+}
+h1.pagetitle:after, .sf-menu > li:before {
+	border-bottom: 1px solid #a49284 !important;
+}
+#content h3.widgettitle:after, .news-widget-list > li:before, li.eventwidget-item:before, h1.menu-cat:after {
+	border-bottom: 0 !important;
+}
+#content h3.widgettitle {
+	border-bottom: 1px solid #52C0B0;
+}
+#social ul li {
+	background-color: #a49284 !important;
+}
+h1.pagetitle, h3.widgettitle, h3.widgettitle a, h1.menu-cat {
+	color: #a92c2c !important;
+}
+h1.menu-cat {
+	padding-bottom: 0 !important;
+	margin-bottom: 5px;
+}
+.widget-area .box {
+	border: 2px solid #52c0b0;
+	box-shadow: 0 0 0 7px #52c0b0;
+	-webkit-box-shadow: 0 0 0 7px #52c0b0;
+	outline: 3px solid #ffffff;
+	padding: 3px;
+	width: 286px;
+	margin-right: 15px !important;
+	margin-left: 8px !important;
+	margin-bottom: 27px !important;
+}
+ul.menu-categories li {
+	border: 2px solid #52c0b0;
+	box-shadow: 0 0 0 7px #52c0b0;
+	-webkit-box-shadow: 0 0 0 7px #52c0b0;
+	outline: 3px solid #ffffff;
+	margin-bottom: 40px;
+	padding-bottom: 30px;
+}
+ul.menu-categories li ul li {
+	border: 0 !important;
+	box-shadow: 0 0 0 0 !important;
+	-webkit-box-shadow: 0 0 0 0 !important;
+	outline: 0 !important;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+.box-nm {
+	border: 2px solid #52c0b0;
+	box-shadow: 0 0 0 7px #52c0b0;
+	-webkit-box-shadow: 0 0 0 7px #52c0b0;
+	outline: 3px solid #ffffff;	
+	margin: 10px;
+}
+.box-nm h1.pagetitle {
+	width: 98%;
+}
+.gallery-widget li {
+	margin-right: 10px;
+}
+h6.hours-title,
+h6.menu-title,
+.menu-title2,
+.price2 {
+	color: #A59383 !important;
+	font-size: 16px;
+	margin-bottom: 6px;
+	font-style: normal;
+	font-weight: bold !important;
+}
+.price, .price2, .cents, .cents2 { /* hide prices per Lucy 12/15/2018 */
+	display: none !important;
+}
+.gg_Hours_widget p {
+	font-size: 14px;
+	line-height: 24px;
+}
+.view-full {
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+.view-full a {
+	color: #52C0B0 !important;
+}
+.view-full a:hover {
+	color: #a92c2c !important;
+}
+.gallery-resize-icon {
+	background-color: #a92c2c !important;
+}
+#top-bar {
+	background-color: #a92c2c !important;
+}
+#top-bar .fa-map-marker,
+#top-bar .fa-phone {
+	display: none;
+}
+#topinfo ul li {
+	padding: 8px 2px;
+}
+.inner-box {
+	margin: 0;
+	border-bottom: 1px solid #52c0b0;
+}
+.boxbg, ul.gg-gallery li {
+	background: none transparent !important;
+}
+.menu-description2 {
+	padding-bottom: 5px;
+}
+.m-container {
+	width: 100%;
+}
+.food-type {
+	color: #52c0b0;
+	font-size: 12px;
+	font-weight: bold;
+	margin-left: 5px;
+	display: inline-block;
+}	
+.menu-desc {
+	color: #52c0b0 !important;
+	font-size: 16px;
+	font-weight: bold;	
+	margin-top: 0 !important;
+}
+.gallery-single li {
+	margin: 5px 5px 5px 6px;
+}
+ul.gallery-single {
+	width: 100%;
+}
+#logo img {
+	padding: 0;
+}
+div.pp_overlay {
+	background: none repeat scroll 0 0 #d3e8e7 !important;
+}
+.pnw-mobile {
+	width: 100%;
+	color: #444648;
+	text-align: center;
+	padding-top: 10px;
+	display: none;
+}
+.pnw-mobile a {
+	color: #444648 !important;	
+}
+.shiftnav ul.shiftnav-menu li.menu-item > .shiftnav-target, .shiftnav ul.shiftnav-menu li.shiftnav-retract > .shiftnav-target {
+	font-family: 'Gothic821CondensedBT-Regular', sans-serif;
+	font-size: 20px !important; 
+	text-transform: uppercase;
+	color: #a92c2c  !important;
+	line-height: 200% !important;
+}
+.shiftnav.shiftnav-skin-light ul.shiftnav-menu li.menu-item.current-menu-item > .shiftnav-target, .shiftnav.shiftnav-skin-light ul.shiftnav-menu > li.shiftnav-sub-accordion.current-menu-ancestor > .shiftnav-target, .shiftnav.shiftnav-skin-light ul.shiftnav-menu > li.shiftnav-sub-shift.current-menu-ancestor > .shiftnav-target, .shiftnav.shiftnav-skin-light ul.shiftnav-menu li.menu-item ul.sub-menu .current-menu-item .shiftnav-target {
+	background: none #a92c2c  !important;
+	color: #fff !important;
+}
+
+
+
+/**** Phone landscape ****/
+@media only screen and (max-width: 767px) {
+	.pnw-mobile {
+		display: block !important;
+	}
+}
+
+/* PHD Consulting Styles */
+
+.jr-insta-datacontainer {
+	/* display: none !important; */
+}
+
+.covid-notice {
+	margin-bottom: 20px;
+	padding: 15px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 150%;
+	background-color: #a92c2c !important;
+}
