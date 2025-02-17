@@ -47,7 +47,7 @@ body {
 #left {
   position: fixed; /* This makes the left section stay in place */
   top: 60px; /* Aligns it to the top of the viewport */
-  left: 280px; /* Aligns it to the left of the viewport */
+  left: 235px; /* Aligns it to the left of the viewport */
   width: 170px;
   text-align: right;
   margin-right: 20px;
@@ -108,8 +108,8 @@ body {
 
 .Open-Close {
   margin: 0 auto 20px auto; /* Center the box and add space below */
-  padding-left: 143px;
-  padding-right: 143px;
+  padding-left: 170px;
+  padding-right: 170px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 16px;
@@ -241,7 +241,7 @@ body {
     position: static;
     width: 100px; /* Adjust the width for mobile */
     text-align: center;
-    height: 380px;
+    height: 550px;
     overflow: hidden;
     margin-top: 20px;
     top: auto;
@@ -265,11 +265,6 @@ body {
     padding-left: 0;
   }
 
-  #topnavi ul li {
-    width: 90%; /* Adjust width to fit screen */
-    margin: 5px 0; /* Space between menu items */
-    padding-left: 20px;
-  }
 
   /* NAVBAR OPTION SIZE & DIMENSIONS */
   #topnavi ul li a {
@@ -294,33 +289,6 @@ body {
     padding: 20px;
   }
 
-  #slideshow img {
-    max-width: 300px;
-    max-height: 220px;
-    border: 50px solid white;
-    box-sizing: content-box;
-    align-items: center;
-    opacity: 0; /* Hide all images by default */
-    transition: opacity 6s ease-in-out; /* Smooth fade effect */
-    z-index: 1;
-  }
-
-  #slideshow img.active {
-    opacity: 1; /* Show the active image */
-    justify-content: center;
-    z-index: 2;
-  }
-
-  #slideshow {
-    position: relative; /* Ensure images are contained in the slideshow */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
-    max-width: 300px;
-    max-height: 400px;
-    overflow: hidden; /* Hide overflowing images */
-  }
 
   .menu-section {
     width: 100%;
@@ -403,7 +371,7 @@ body {
 
   #left {
     position: static;
-    max-width: 200px; /* Smaller width for mobile */
+    max-width: 300px; /* Smaller width for mobile */
     text-align: center;
     height: auto; /* Let height adjust dynamically */
     overflow: hidden;
@@ -428,9 +396,6 @@ body {
     padding-left: 5;
   }
 
-  #topnavi ul li {
-    width: 95%;
-  }
 
   /* NAVBAR OPTION SIZE & DIMENSIONS */
   #topnavi ul li a {
@@ -473,7 +438,7 @@ body {
   }
 
   #slideshow {
-    position: relative;
+    position:relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -481,6 +446,7 @@ body {
     max-width: 320px;
     max-height: 300px;
     overflow: hidden;
+    margin-left: 40px;
   }
 
   .menu-section {

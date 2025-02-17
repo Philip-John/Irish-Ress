@@ -5,11 +5,12 @@ window.addEventListener('scroll', () => {
   let currentSection = '';
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
+    const sectionTop = section.getBoundingClientRect().top;
+    const sectionId = section.getAttribute('id');
 
-    if (window.scrollY >= sectionTop - sectionHeight / 3) {
-      currentSection = section.getAttribute('id');
+    // Check if the section's top reaches the bottom of the viewport
+    if (sectionTop <= window.innerHeight && sectionTop + section.offsetHeight > window.innerHeight) {
+      currentSection = sectionId;
     }
   });
 
@@ -20,3 +21,4 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+

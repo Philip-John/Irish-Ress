@@ -18,21 +18,14 @@
     />
     <style>
       body {
-        background: linear-gradient(
-            to bottom right,
-            rgba(62, 88, 31, 0.1),
-            rgba(10, 223, 42, 0.1)
-          ),
-          url("Bg.png");
+        background: url("Bg3.png");
         font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
         color: #333;
         margin: 0;
         padding: 0;
-        min-height: 100vh;
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
       }
 
       body::before {
@@ -57,6 +50,47 @@
         opacity: 0;
         visibility: hidden;
         z-index: 1;
+      }
+
+      .toggle-icon {
+        margin-left: 10px;
+        cursor: pointer;
+        color: #14ac29; /* Green color to match your theme */
+        font-size: 16px;
+      }
+
+      .toggle-icon:hover {
+        color: #0e7a1d; /* Darker green on hover */
+      }
+
+      #hover-image-container {
+        position: fixed;
+        padding-top: 100px;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      #hover-image {
+        max-width: 300px;
+        max-height: 200px;
+        border: 5px solid white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      #close-button {
+        position: absolute;
+        top: 100px;
+        right: 0px;
+        background: none;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        display: none; /* Hidden by default */
       }
 
       #slideshow img.active {
@@ -102,7 +136,8 @@
         text-decoration: none;
         color: #ffffff;
         display: block;
-        padding: 10px;
+        padding-bottom: 10px;
+        padding-top: 10px;
         width: 140px;
         position: relative;
         transition: background 0.3s, color 0.3s;
@@ -157,10 +192,9 @@
         margin-bottom: 5px;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 1500px) {
         #slideshow img {
-          max-width: 90%;
-          max-height: 180px;
+          max-width: 300px;
           border: 5px solid white;
           box-sizing: border-box;
           align-items: center;
@@ -175,17 +209,29 @@
           z-index: 2;
         }
 
+        #close-button {
+          position: absolute;
+          top: 80px;
+          right: -10px;
+          background: none;
+          color: white;
+          cursor: pointer;
+          font-size: 16px;
+          display: none; /* Hidden by default */
+        }
+
         #slideshow {
           position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 10px auto;
           max-width: 320px;
           max-height: 300px;
           overflow: hidden;
         }
+      }
 
+      @media (max-width: 768px) {
         .menu-section {
           width: 100%;
           max-width: 320px;
@@ -194,6 +240,29 @@
           background-color: #fff;
           box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
           text-align: center;
+        }
+
+        #hover-image-container {
+          top: 10px;
+          right: 35px;
+        }
+
+        #hover-image {
+          max-width: 300px;
+          max-height: 225px;
+        }
+
+        #close-button {
+          position: absolute;
+          top: 100px;
+          right: 0px;
+          background: none;
+          color: white;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 24px;
         }
 
         .Open-Close {
@@ -254,8 +323,17 @@
             <ul>
               <li><a href="#home" class="active">Home</a></li>
               <li><a href="#timings">Hours</a></li>
+              <li><a href="#specials">Weekly Specials</a></li>
               <li><a href="#breakfast">Appetizers</a></li>
-              <li><a href="#lunch">Dinners</a></li>
+              <li><a href="#soups-salads">Soups & Salad</a></li>
+              <li><a href="#pasta-dishes">Pasta</a></li>
+              <li><a href="#dinner">Dinners</a></li>
+              <li>
+                <a href="#sandwiches-wraps"
+                  >Sandwiches <br />
+                  & Wraps</a
+                >
+              </li>
               <li><a href="#pastries">Desserts</a></li>
             </ul>
           </div>
@@ -295,6 +373,16 @@
             </div>
           </div>
 
+          <div id="hover-image-container">
+            <img
+              id="hover-image"
+              src=""
+              alt="Dish Image"
+              style="display: none"
+            />
+            <button id="close-button" style="display: none">×</button>
+          </div>
+
           <section id="home" class="menu-section">
             <h2>
               Welcome to <br />
@@ -307,16 +395,7 @@
           </section>
 
           <section id="timings" class="menu-section">
-            <h2
-              style="
-                color: darkgreen;
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 20px;
-              "
-            >
-              HOURS
-            </h2>
+            <h2>HOURS</h2>
             <hr
               style="
                 border: none;
@@ -353,65 +432,442 @@
               12PM-9PM
             </p>
           </section>
+          <section id="specials" class="menu-section">
+            <h2>Weekly Specials</h2>
 
-          <section id="breakfast" class="menu-section">
-            <h2>Appetizers & Small Bites</h2>
             <div class="menu-item">
-              <span>MEXICAN POTATO SKINS</span><span>15.95</span>
+              <span>Mexican Potato Skins</span><span>$15.95</span>
             </div>
             <div class="menu-item-description">
               Chili, Red Onion, Olives, Pepper Jack Cheese
             </div>
 
             <div class="menu-item">
-              <span>SAUSAGE STUFFED MUSHROOMS</span><span>15.95</span>
+              <span>Sausage Stuffed Mushrooms</span><span>$15.95</span>
             </div>
 
             <div class="menu-item">
-              <span>SHRIMP ALEXANDER</span><span>17.95</span>
+              <span>Shrimp Alexander</span><span>$17.95</span>
             </div>
             <div class="menu-item-description">
-              Horseradish Marinade Shrimp Wrapped In Bacon Over Sautéed Spinach
+              Horseradish Marinade Shrimp wrapped in bacon over sautéed Spinach
             </div>
 
             <div class="menu-item">
-              <span>SAUSAGE, PEPPERS & ONION SANDWICH</span><span>16.95</span>
+              <span>Sausage, Peppers & Onion Sandwich</span><span>$16.95</span>
             </div>
 
             <div class="menu-item">
-              <span>CHICKEN PAKODA</span><span>16.95</span>
+              <span>Chicken Pakoda</span><span>$16.95</span>
             </div>
             <div class="menu-item-description">
-              Chicken, Onion, Garlic, Cilantro, Mint, Curry Leaves, coated with
-              Chickpea Rice and Bread Crumbs
+              Chicken, Onion, Garlic, Mint, Cilantro, Curry Leaves coated with
+              Chickpea, Rice Flour, Bread Crumbs
             </div>
-          </section>
 
-          <section id="lunch" class="menu-section">
-            <h2>Dinners</h2>
-            <div class="menu-item">
-              <span>PAN COOKED PORK CHOP</span><span>20.95</span>
+            <div class="menu-item"
+            data-image="imgss\spl Pan Seared Pork Chops.jpg">
+              <span>Pan Cooked Pork Chop
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              >
+              </span><span>$20.95</span>
             </div>
             <div class="menu-item-description">
-              with Vinegar Pepper & Garlic Augus
+              With Vinegar Pepper & Garlic Augus
             </div>
 
             <div class="menu-item">
-              <span>SEAFOOD ALFREDO OVER FETTUCCINI</span><span>26.95</span>
+              <span>SeaFood Alfredo</span><span>$26.95</span>
             </div>
-            <div class="menu-item-description">with French Fries</div>
+            <div class="menu-item-description">Over Fettuccini</div>
 
             <div class="menu-item">
-              <span>BROILED 3-FISH PLATTER</span><span>26.65</span>
+              <span>Broiled 3 Fish Platter</span><span>$26.95</span>
             </div>
             <div class="menu-item-description">Salmon, Haddock, Scallops</div>
 
             <div class="menu-item">
-              <span>CHICKEN SINATRA</span><span>22.95</span>
+              <span>Chicken Sinatra</span><span>$22.95</span>
             </div>
             <div class="menu-item-description">
-              Cutlet Topped with Broccoli, Roasted Red Pepper, Garlic Butter,
+              Cutlet topped with Broccoli, Roasted Red Peppers, Garlic Butter,
               Mozzarella Cheese
+            </div>
+          </section>
+
+          <section id="breakfast" class="menu-section">
+            <h2>Appetizers & Small Bites</h2>
+
+            <div
+              class="menu-item"
+              data-image="imgss\Egg Plant Rolatinin Choice 1.jpg"
+            >
+              <span
+                >Eggplant Rollatini
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>14.95</span>
+            </div>
+            <div class="menu-item-description">
+              Stuffed eggplant with Ricotta, Mozzarella & Romano Cheese
+            </div>
+
+            <div class="menu-item">
+              <span>Onion Rings</span><span>7.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Mozzarella Stix</span><span>9.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Tenders</span><span>13.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Buffalo Wings</span><span>15.95</span>
+            </div>
+            <div class="menu-item-description">
+              With Blue Cheese, Celery & Carrots
+            </div>
+
+            <div class="menu-item" data-image="imgss\BonelessWings.jpg">
+              <span
+                >Boneless Wings
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span> </span><span>13.95</span>
+            </div>
+            <div class="menu-item-description">
+              With Blue Cheese, Celery & Carrots
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Livers in Marsala Wine Sauce</span
+              ><span>13.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Fried Calamari</span><span>14.95</span>
+            </div>
+
+            <div
+              class="menu-item"
+              data-image="imgss\Bacon Wrapped Scallops.jpg"
+            >
+              <span
+                >Scallops wrapped in Bacon
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>15.95</span>
+            </div>
+            <div class="menu-item-description">
+              Served with Sautéed Spinach in Garlic
+            </div>
+
+            <div class="menu-item">
+              <span>Stuffed Mushrooms with Seafood</span><span>13.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Shrimp Cocktail</span><span>14.95</span>
+            </div>
+            <div class="menu-item-description">
+              Jumbo shrimp chilled and served with Cocktail sauce
+            </div>
+
+            <div class="menu-item">
+              <span>Steamed Clams</span><span>13.92</span>
+            </div>
+            <div class="menu-item-description">
+              Bakers Dozen steamed clams with clarified butter
+            </div>
+
+            <div class="menu-item">
+              <span>Mussels Marinara</span><span>12.95</span>
+            </div>
+            <div class="menu-item-description">
+              18 Black Mussels with marinara sauce
+            </div>
+
+            <div class="menu-item">
+              <span>Sea Food Mac & Cheese (Small)</span><span>16.95</span>
+            </div>
+
+            <div class="menu-item" data-image="imgss\Fish & Chips.jpg">
+              <span
+                >Fish and Chips
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>21.95</span>
+            </div>
+          </section>
+
+          <section id="soups-salads" class="menu-section">
+            <h2>Soups & Salads</h2>
+
+            <div class="menu-item">
+              <span>French Onion Soup</span><span>8.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Soup Of the Day</span><span>8.95</span>
+            </div>
+            <div class="menu-item-description">Gourmet soup</div>
+
+            <div class="menu-item">
+              <span>Grilled Chicken Salad</span><span>15.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>COBB Salad</span><span>15.95</span>
+            </div>
+
+            <div class="menu-item" data-image="imgss\Garden Salad.jpg">
+              <span
+                >Garden Salad
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>5.95</span>
+            </div>
+
+            <div
+              class="menu-item"
+              data-image="imgss\Caeser Salad with Chicken.jpg"
+            >
+              <span
+                >Caesar Salad
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>10.95</span>
+            </div>
+          </section>
+
+          <section id="pasta-dishes" class="menu-section">
+            <h2>Pasta</h2>
+
+            <div class="menu-item">
+              <span>Vodka Rigatoni</span><span>18.95</span>
+            </div>
+            <div class="menu-item-description">
+              Made with Spicy Vodka, tomato, cream sauce
+            </div>
+
+            <div class="menu-item">
+              <span>Rigatoni Bolognese</span><span>19.95</span>
+            </div>
+            <div class="menu-item-description">
+              Loose sausage, tomato, cream sauce, tossed with Rigatoni
+            </div>
+
+            <div class="menu-item">
+              <span>Mussels Marinara Over Linguini</span><span>19.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Linguini with White or Red Clam Sauce</span
+              ><span>25.95</span>
+            </div>
+            <div class="menu-item-description">
+              Dozen Steamed Clams with garlic butter sauce
+            </div>
+
+            <div class="menu-item">
+              <span>Shrimp Scampi Over Linguini</span><span>25.95</span>
+            </div>
+            <div class="menu-item-description">
+              Sautéed shrimp with garlic, butter, lemon, white wine
+            </div>
+          </section>
+
+          <section id="dinner" class="menu-section">
+            <h2>Dinner</h2>
+
+            <div class="menu-item">
+              <span>Steak Au Poivre</span><span>33.95</span>
+            </div>
+            <div class="menu-item-description">
+              Char Broiled NY Strip, topped with brandy, pepper corn, Dijon Demi
+              cream, With Side Of Pasta or Vegetables & Potatoes
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Parm With Side of Pasta</span><span>19.95</span>
+            </div>
+            <div class="menu-item-description">
+              Breaded veal topped with sauce and Mozzarella, With Side Of Pasta
+              or Vegetables & Potatoes
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Marsala</span><span>23.95</span>
+            </div>
+            <div class="menu-item-description">
+              Pan-fried chicken breasts in a sweet Marsala wine and mushroom
+              sauce, With Side Of Pasta or Vegetables & Potatoes
+            </div>
+
+            <div class="menu-item" data-image="imgss\Chicken Francese.jpg">
+              <span
+                >Chicken Francese
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>22.95</span>
+            </div>
+            <div class="menu-item-description">
+              Sautéed egg battered medallions, finished with lemon white wine
+              butter
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Piccata</span><span>23.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Michael</span><span>23.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Char Broiled Strip Steak - 14 Oz</span><span>31.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Broiled Haddock</span><span>23.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Haddock Marinara</span><span>24.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Haddock Francese</span><span>24.95</span>
+            </div>
+            <div class="menu-item-description">
+              Sautéed egg battered haddock fillet, finished with lemon white
+              wine butter
+            </div>
+
+            <div class="menu-item">
+              <span>Broiled or Fried Scallops</span><span>26.95</span>
+            </div>
+
+            <div class="menu-item" data-image="imgss\Fried Seafood platter.jpg">
+              <span
+                >Fried Seafood Platter
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>25.95</span>
+            </div>
+            <div class="menu-item-description">
+              Combination fried haddock, clams, shrimp with cole slaw and french
+              fries
+            </div>
+
+            <div class="menu-item">
+              <span>Seafood Fradiablo</span><span>31.95</span>
+            </div>
+            <div class="menu-item-description">
+              Simmered Clams, Mussels, Shrimp, Scallops with Spicy marinara over
+              Linguini
+            </div>
+
+            <div class="menu-item">
+              <span>Shepherd's Pie</span><span>19.95</span>
+            </div>
+            <div class="menu-item-description">
+              Ground beef, garden vegetables, seasoned in brown sauce topped
+              with mashed potatoes
+            </div>
+          </section>
+
+          <section id="sandwiches-wraps" class="menu-section">
+            <h2>Sandwiches & Wraps</h2>
+
+            <div class="menu-item">
+              <span>Chicken Quesadillas</span><span>15.99</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Grilled Reuben</span><span>16.95</span>
+            </div>
+            <div class="menu-item-description">
+              Grilled Rye with Swiss cheese, Russian dressing with sauerkraut
+              and corned beef, Served With Fries or Deli Salad
+            </div>
+
+            <div class="menu-item" data-image="imgss\Turkey Rueben.jpg">
+              <span
+                >Grilled Turkey Reuben
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>15.95</span>
+            </div>
+            <div class="menu-item-description">
+              Grilled Rye with Swiss cheese, Russian dressing with sauerkraut
+              and Turkey
+            </div>
+
+            <div class="menu-item" data-image="imgss\Jersey Joe.jpg">
+              <span
+                >Jersey Joe
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>17.95</span>
+            </div>
+            <div class="menu-item-description">Thinly sliced roast beef</div>
+
+            <div class="menu-item">
+              <span>Open Faced Hot Roast Beef</span><span>19.95</span>
+            </div>
+            <div class="menu-item-description">
+              Thinly sliced beef over white bread, and natural beef gravy with
+              mashed potatoes or French Fries
+            </div>
+
+            <div class="menu-item">
+              <span>Open Faced Hot Turkey</span><span>18.95</span>
+            </div>
+            <div class="menu-item-description">
+              Thinly sliced oven-roasted turkey over white bread, and natural
+              turkey gravy with mashed potatoes or French Fries
+            </div>
+
+            <div class="menu-item">
+              <span>Steak Subs - Build your own</span><span>17.95</span>
+            </div>
+            <div class="menu-item-description">
+              Shredded steak, Mushrooms, Onions, Peppers, Mozzarella cheese and
+              Sauce
+            </div>
+
+            <div class="menu-item"><span>Wrap</span><span>16.95</span></div>
+
+            <div
+              class="menu-item"
+              data-image="imgss\Cheese Burger with Fries.jpg"
+            >
+              <span
+                >Burger
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>12.95</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Chicken Parm Sub</span><span>15.95</span>
             </div>
           </section>
 
@@ -420,20 +876,19 @@
             <div class="menu-item">
               <span>Blue Berry Mascarpone Cheesecake</span><span>7.95</span>
             </div>
-            <div class="menu-item">
-              <span>Chocolate Cake</span><span>7.95</span>
+            <div class="menu-item" data-image="imgss\Chocolate Cake.jpg">
+              <span
+                >Chocolate Cake
+                <span class="toggle-icon"
+                  ><i class="fas fa-eye"></i
+                ></span> </span
+              ><span>7.95</span>
             </div>
             <div class="menu-item">
               <span>Carrot Cake</span><span>7.95</span>
             </div>
             <div class="menu-item">
               <span>Peanut Butter Pie</span><span>7.95</span>
-            </div>
-            <div class="menu-item">
-              <span>Pumpkin Spiced</span><span>7.95</span>
-            </div>
-            <div class="menu-item">
-              <span>Irish Cream Coffee</span><span>7.95</span>
             </div>
           </section>
 
@@ -445,9 +900,51 @@
     </div>
 
     <script>
-      window.addEventListener("scroll", function () {
-        const scrollY = window.scrollY * 0.05; // Adjust for subtle movement
-        document.body.style.backgroundPosition = `center calc(50% + ${scrollY}px)`;
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleIcons = document.querySelectorAll(".toggle-icon");
+        const hoverImage = document.getElementById("hover-image");
+        const hoverImageContainer = document.getElementById(
+          "hover-image-container"
+        );
+        const closeButton = document.getElementById("close-button");
+
+        toggleIcons.forEach((icon) => {
+          icon.addEventListener("click", function () {
+            const menuItem = this.closest(".menu-item");
+            const imageUrl = menuItem.getAttribute("data-image");
+
+            if (
+              hoverImage.src === imageUrl &&
+              hoverImage.style.display === "block"
+            ) {
+              // If the image is already shown, hide it
+              hoverImage.style.display = "none";
+              closeButton.style.display = "none";
+            } else {
+              // Otherwise, show the image
+              hoverImage.src = imageUrl;
+              hoverImage.style.display = "block";
+              closeButton.style.display = "block";
+            }
+          });
+        });
+
+        // Close button functionality
+        closeButton.addEventListener("click", function () {
+          hoverImage.style.display = "none";
+          closeButton.style.display = "none";
+        });
+
+        // Optional: Close the image when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !e.target.closest(".toggle-icon") &&
+            !e.target.closest("#hover-image-container")
+          ) {
+            hoverImage.style.display = "none";
+            closeButton.style.display = "none";
+          }
+        });
       });
 
       let currentSlide = 0;
